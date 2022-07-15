@@ -3,7 +3,7 @@ package com.example.boardex.service;
 import com.example.boardex.dto.GuestbookDTO;
 import com.example.boardex.dto.PageRequestDTO;
 import com.example.boardex.dto.PageResultDTO;
-import com.example.boardex.entity.Guestbook;
+import com.example.boardex.domains.entity.Guestbook;
 
 public interface GuestbookService {
 
@@ -11,6 +11,13 @@ public interface GuestbookService {
     Long register(GuestbookDTO dto);
 
     PageResultDTO<GuestbookDTO, Guestbook> getList(PageRequestDTO requestDTO);
+
+    GuestbookDTO read(Long gno);
+
+    void modify(GuestbookDTO dto);
+
+    void remove(Long gno);
+
 
     //나중에 dto와 entity 구조가 달라지는 경우가 생김
     //

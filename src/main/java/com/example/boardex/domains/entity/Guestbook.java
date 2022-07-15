@@ -1,4 +1,4 @@
-package com.example.boardex.entity;
+package com.example.boardex.domains.entity;
 
 
 import lombok.*;

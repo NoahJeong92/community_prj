@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="~{/layout/basic :: setContent(~{this::content} )}">
+
+<body>
+<th:block th:fragment="content">
+
+    <div class="jumbotron">
+        <div class="container">
+            <div class="h3 mb-3 font-weight-normal">
+             sign up
+            </div>
+
+            <div class="formContainer">
+                <form th:action="@{/auth/signUp}" method="post">
+                    <input class="form-control" type="text" id="authId" name="authId" placeholder="아이디">
+                    <input class="form-control" type="password" id="password" name="password" placeholder="패스워드">
+                    <input class="form-control" type="password" id="passwordCheck" placeholder="패스워드 확인">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="이름">
+                    <input type="text" class="form-control" id="phone" name="phone" placeholder="핸드폰">
+                    <input class="form-control" type="text" id="city" name="city" placeholder="도시">
+                    <input class="form-control" type="text" id="street" name="street" placeholder="거리">
+                    <div style="margin-top: 3vh;">
+                        <button class="btn btn-primary right" type="submit">회원가입</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+<style>
+    input {
+        margin-bottom: 5px;
+    }
+
+    .form-control {
+        max-width: 30%;
+    }
+</style>
+
+<script>
+  $(function() {
+    // 중복 검사
+
+
+    // 비밀번호 일치 검사
+
+
+  });
+</script>
+</th:block>
+</th:block>

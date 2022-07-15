@@ -1,6 +1,6 @@
 package com.example.boardex.repository;
 
-import com.example.boardex.entity.Guestbook;
+import com.example.boardex.domains.entity.Guestbook;
 import com.example.boardex.entity.QGuestbook;
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.types.dsl.BooleanExpression;

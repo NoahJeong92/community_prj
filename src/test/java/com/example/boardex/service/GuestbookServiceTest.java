@@ -3,12 +3,10 @@ package com.example.boardex.service;
 import com.example.boardex.dto.GuestbookDTO;
 import com.example.boardex.dto.PageRequestDTO;
 import com.example.boardex.dto.PageResultDTO;
-import com.example.boardex.entity.Guestbook;
+import com.example.boardex.domains.entity.Guestbook;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class GuestbookServiceTest {

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="~{/layout/basic :: setContent(~{this::content} )}">
+
+    <th:block th:fragment="content">
+        <h1 class="mt-4">진짜 경험자들의 학원 리뷰!
+            <span>
+                <a th:href="@{/admin/company/new}">
+                    <button type="button" class="btn btn-outline-primary">REGISTER
+                    </button>
+                </a>
+            </span>
+        </h1>
+
+<section class="container">
+    <div class="company_main">
+        <p class="sub">실제 수료생들이 평가하는 학원은 어떤지 확인 해보세요.</p>
+        <input type="hidden" name="searchQuery" th:value="${companySearchDto.searchQuery}">
+        <div th:if="${not #strings.isEmpty(companySearchDto.searchQuery)}" class="center">
+            <p class="h3 font-weight-bold" th:text="${companySearchDto.searchQuery} + '검색 결과'"></p>
+        </div>
+    </div>
+</section>
+</div>
+
+
+<div class="row">
+    <th:block th:each="company, status: ${companys.getContent()}">
+        <div class="col-md-4 margin">
+            <div class="card">
+                <a th:href="'/company/' +${company.id}" class="text-dark">
+                    <img th:src="${company.imgUrl}" class="card-img-top" th:alt="${company.companyNm}" height="200">
+                    <div class="card-body">
+                        <h4 class="card-title">[[${company.companyNm}]]</h4>
+                        <p class="card-text">[[${company.companyDetail}]]</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </th:block>
+</div>
+
+<div th:with="start=${(companys.number/maxPage)*maxPage + 1}, end=(${(companys.totalPages == 0) ? 1 : (start + (maxPage - 1) < companys.totalPages ? start + (maxPage - 1) : companys.totalPages)})" >
+    <ul class="pagination justify-content-center">
+
+        <li class="page-item" th:classappend="${companys.number eq 0}?'disabled':''">
+            <a th:href="@{'/' + '?searchQuery=' + ${companySearchDto.searchQuery} + '&page=' + ${companys.number-1}}" aria-label='Previous' class="page-link">
+                <span aria-hidden='true'>Previous</span>
+            </a>
+        </li>
+
+        <li class="page-item" th:each="page: ${#numbers.sequence(start, end)}" th:classappend="${companys.number eq page-1}?'active':''">
+            <a th:href="@{'/' +'?searchQuery=' + ${companySearchDto.searchQuery} + '&page=' + ${page-1}}" th:inline="text" class="page-link">[[${page}]]</a>
+        </li>
+
+        <li class="page-item" th:classappend="${companys.number+1 ge companys.totalPages}?'disabled':''">
+            <a th:href="@{'/' +'?searchQuery=' + ${companySearchDto.searchQuery} + '&page=' + ${companys.number+1}}" aria-label='Next' class="page-link">
+                <span aria-hidden='true'>Next</span>
+            </a>
+        </li>
+
+    </ul>
+</div>
+
+
+</th:block>
+</th:block>

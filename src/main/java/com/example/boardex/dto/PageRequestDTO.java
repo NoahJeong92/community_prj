@@ -16,6 +16,9 @@ public class PageRequestDTO {
     // 파라미터 수집을 위해서
     private int page;
     private int size;
+    private String type;
+    private String keyword;
+
 
     public PageRequestDTO(){
         this.page = 1;
