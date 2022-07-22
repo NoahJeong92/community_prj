@@ -19,7 +19,7 @@ public class MainController {
 
     private final CompanyService companyService;
 
-    @GetMapping(value = "/company")
+    @GetMapping(value = "/")
     public String main(CompanySearchDto companySearchDto, Optional<Integer> page, Model model){
         Pageable pageable = PageRequest.of(page.isPresent() ? page.get() : 0, 6);
         Page<MainCompanyDto> companys = companyService.getMainCompanyPage(companySearchDto, pageable);
