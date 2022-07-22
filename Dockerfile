@@ -9,4 +9,4 @@ ARG JAR_FILE=./build/libs/bevel-1.0.jar
 COPY ${JAR_FILE} app.jar
 
 # 빌드된 이미지가 run될 때 실행할 명령어
-ENTRYPOINT ["java","-jar","app.jar"]
+ENTRYPOINT ["java","-jar","app.jar","--spring.comfig.location=/config/application.properties"]
